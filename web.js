@@ -14,7 +14,7 @@ async function scrapeInfiniteScrollItems(
   page,
   extractItems,
   itemTargetCount,
-  scrollDelay = 1000,
+  scrollDelay = 10000,
 ) {
   let items = [];
   try {
@@ -45,7 +45,7 @@ async function scrapeInfiniteScrollItems(
   const items = await scrapeInfiniteScrollItems(page, extractItems, 100000);
 
   // Save extracted items to a file.
-  //fs.writeFileSync('./dutc.txt', items.join('\n') + '\n');
+  fs.writeFileSync('./dutc.txt', items.join('\n') + '\n');
   fs.writeFile('dutchie.json',JSON.stringify(items, null, 2),(err)=>{
     if(err){console.log(err)}
     else{console.log('Saved Successfully!')}
